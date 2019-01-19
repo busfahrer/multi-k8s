@@ -6,4 +6,4 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-
+  - openssl aes-256-cbc -K $encrypted_2bb5907737b9_key -iv $encrypted_2bb5907737b9_iv -in multi-k8s-229111-bd16a294963b.json.enc -out multi-k8s-229111-bd16a294963b.json -d
