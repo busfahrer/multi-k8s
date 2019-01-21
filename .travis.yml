@@ -10,3 +10,8 @@ before_install:
   - gcloud config set project multi-k8s-229111
   - gcloud config set compute/zone europe-west3-c
   - gcloud container clusters get-credentials multi-cluster
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t busfahrer/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run busfahrer/react-test npm test -- --coverage
